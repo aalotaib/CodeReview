@@ -1,0 +1,12 @@
+{% extends 'baseL4g.html' %}
+{% block content %}
+<br>
+<center>
+<p>This is my Profile page</p>
+<p>check if goal has been created or not</p> 
+<p>1. If created display the options for Goal Track, Invite Sponsors, Update Weight, Delete Goal</p>
+<p>2. If not created, display the link for Creating a goal</p>
+<p><a href="/createGoal/">Create Goal hardcoding url</a></p>
+<p><a href="{% url goal.views.CreateGoal %}">Create Goal Django style</a></p>
+</center>
+{% endblock %}

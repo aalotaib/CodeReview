@@ -1,0 +1,10 @@
+
+
+{% extends "baseL4g.html" %}
+{% block content %}
+		<center>
+        <p>Name: {{ weightloser.fname }}&nbsp{{ weightloser.lname }}</p>
+        <p>Birthday: {{ weightloser.dob }}</p>
+        <p><a href="{% url goal.views.CreateGoal %}">Create Goal</a></p>
+        </center>
+{% endblock %}

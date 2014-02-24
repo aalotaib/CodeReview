@@ -1,0 +1,26 @@
+{% extends 'baseL4G.html' %}
+{% block headerimage %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+	<script>
+  	$(function() {
+  		$( "#id_dob" ).datepicker();
+  	});
+  </script>
+{% endblock %}
+{% block logout %}
+
+{% endblock %}
+{% block content %}
+<form action="/login/" method="post" id="formlogin" style="position:absolute;right:20px;top:25px;border-width:0;z-index:2;">
+{% csrf_token %}
+{% if form.username.errors %}<p class="error">{{ form.username.errors }}</p>{% endif %}
+{{ form.username }}</td></tr>
+{% if form.password.errors %}<p class="error">{{ form.password.errors }}</p>{% endif %}
+{{ form.password }}</td></tr>
+<p align="center"><input type="submit" alt="register" value="Login"/></p>
+<p align="center">Forgot your password? <a href="/resetpassword/">Reset it!</a></p>
+</form>
+<br>
+{% endblock %}
+ 

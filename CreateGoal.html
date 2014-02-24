@@ -1,0 +1,47 @@
+{% extends 'baseL4g.html' %}
+{% block headerimage %}
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+  	$(function() {
+  		$( "#id_deadline" ).datepicker();
+  	});
+  </script>
+{% endblock %}
+{% block content %}
+<h2 class="heading2" align="center">Goal Creation Page</h2>
+<form action="" method="post" id="formGoal">
+{% csrf_token %}
+<table align="center" cellpadding="5">
+<tr><td>
+{% if form.currWeight.errors %}<p class="error">{{ form.currWeight.errors }}</p>{% endif %}What is your current weight?
+</td><td>
+{{ form.currWeight }}
+</td></tr>
+<br>
+<tr><td>
+{% if form.losepounds.errors %}<p class="error">{{ form.losepounds.errors }}</p>{% endif %}How many pounds do you want to lose?
+</td><td>
+{{ form.losepounds }}
+</td></tr>
+<br>
+<tr><td>
+{% if form.deadline.errors %}<p class="error">{{ form.deadline.errors }}</p>{% endif %}By when do you want to achieve this goal?
+</td><td>
+{{ form.deadline }}
+</td></tr>
+<tr><td>
+<br><br>
+{% if form.charitylist.errors %}<p class="error">{{ form.charitylist.errors }}</p>{% endif %}Select the Charity Organization you wish to help.
+</td><td>
+<br><br>
+{{ form.charitylist }}
+</td></tr>
+<tr><td colspan="2">
+<p align="center"><input type="submit" alt="register" value="Start Goal Now"/></p>
+</td></tr>
+</form>
+
+{# Here if the goal has already been created, then redirect to the Goal Details or Track Goal Page#}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'baseL4g.html' %}
+
+{% block content %}
+<h2 class="heading2" align="center">Charity Selection</h2>
+<form action="" method="post" id="formGoal">
+{% csrf_token %}
+<p>Goal details are</p>
+<p>Deadline: {{ goal.deadline }}</p>
+<p>Weight Loss Target: {{ goal.target_weight }}</p>
+<table align="center" cellpadding="5">
+<tr><td>
+{% if form.charitylist.errors %}<p class="error">{{ form.charitylist.errors }}</p>{% endif %}Select the Charity Organization you wish to help.
+</td><td>
+{{ form.charitylist }}
+</td></tr>
+
+<tr><td colspan="2">
+<p align="center"><input type="submit" alt="register" value="Proceed"/></p>
+</td></tr>
+</form>
+
+{# Here if the goal has already been created, then redirect to the Goal Details or Track Goal Page#}
+{% endblock %}

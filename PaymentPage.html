@@ -1,0 +1,90 @@
+
+
+{% extends "baseL4g.html" %}
+
+{% block content %}
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.min.css">
+<link rel="stylesheet" type="text/css" href="css/theme.min.css">
+<script src="paypal-button.min.js?merchant=thatceo@mybusiness.com" 
+></script>
+<script src="jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+function updatePayPalForm(element){
+	var amount = $(element).val();
+	$("#amountFinal").val(amount);
+}
+</script>
+</head>
+        
+	<div class="container">
+
+		<div class="page-header">
+	  		<h1>Lose4Good</h1>
+		</div>
+
+		<div class="jumbotron">
+	  		<div class="container">
+	    		<div class="row">
+	    			<div class="col-md-2">
+	    				<img src="http://png-4.findicons.com/files/icons/989/ivista_2/128/user.png">
+	    			</div>	
+	    			<div class="col-md-10">
+	    				<p>Mr. A</p>
+	    				<p><em>I want to lose <strong>20 lbs</strong> in <strong>30 days</strong>.</em>
+	    				<p>Charity organization selected: <a href="http://www.greenpeace.org/usa/en/">Greenpeace</a></p>
+	    				<p>Money raised: <strong>$4500</strong></p>
+	    			</div>
+	    		</div>
+	    	</div>
+	  	</div>
+
+  		<div class="row">
+  			<p class="col-md-12">Interested in helping out Mr.A? Donate now:</p>
+
+  			<form class="form-horizontal" role="form">
+			  <div class="form-group">
+			    <label for="inputName" class="col-lg-2 control-label">Name</label>
+			    <div class="col-lg-4">
+			      <input type="text" class="form-control" id="inputName" placeholder="MyName" required>
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+			    <div class="col-lg-4">
+			      <input type="email" class="form-control" id="inputEmail" placeholder="someone@somewhere.com" required>
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="inputAmount" class="col-lg-2 control-label">Amount(in $):</label>
+			    <div class="col-lg-4">
+			      <input type="number" class="form-control" id="inputAmount" placeholder="50" onchange="updatePayPalForm(this)">
+			    </div>
+			  </div>
+
+			</form>
+
+  			<form class="col-md-12" method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr" class="paypal-button" target="_top" style="opacity: 1;">
+				<input type="hidden" name="button" value="donate">
+				<input type="hidden" name="business" value="thatceo@mybusiness.com">
+				<input type="hidden" name="item_name" value="Lose4Good">
+				<input type="hidden" name="quantity" value="">
+				<input type="hidden" name="amount" value="50" id="amountFinal" >
+				<input type="hidden" name="currency_code" value="USD">
+				<input type="hidden" name="shipping" value="">
+				<input type="hidden" name="tax" value="">
+				<input type="hidden" name="notify_url" value="">
+				<input type="hidden" name="env" value="www.sandbox">
+				<input type="hidden" name="cmd" value="_donations">
+				<input type="hidden" name="bn" value="JavaScriptButton_donate">
+				<input type="hidden" name="return" value="http://www.yourwebsite.com/successful.html">
+				<button type="submit" class="paypal-button large">Donate</button>
+			</form>
+  		</div>
+
+  	</div>
+
+
+{% endblock %}
